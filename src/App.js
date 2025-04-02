@@ -12,6 +12,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
+          {/* check */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/student" element={<StudentSignup />} />
