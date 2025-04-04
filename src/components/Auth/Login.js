@@ -53,6 +53,14 @@ const Login = () => {
       // You can also handle the response outside of toast.promise if needed
       const response = await loginPromise;
       console.log('Response outside toast:', response);
+      if(response?.data?.success){
+         if(response?.data?.user?.role=="student"){
+          navigate("/student-dashboard")
+         }
+         else if(response?.data?.user?.role=="teacher"){
+          navigate("/teacher-dashboard")
+         }
+      }
       
     } catch (err) {
       console.log('Catch block error:', err);
