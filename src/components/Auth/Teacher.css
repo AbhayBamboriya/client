@@ -1,0 +1,1299 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .dashboard-container {
+    background-color: #f3f4f6;
+    /* background-color: red; */
+    min-height: 100vh;
+    z-index: 0;
+  }
+  
+  /* Header Styles */
+  .dashboard-header {
+    background-color: #4f46e5;
+    /* background-color: transparent; */
+    color: white;
+    padding: 16px 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .logo-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .search-container {
+    position: relative;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: #a5b4fc;
+  }
+  
+  .search-input {
+    background-color: #4338ca;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px 8px 40px;
+    color: white;
+    width: 200px;
+  }
+  
+  .search-input::placeholder {
+    color: #a5b4fc;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    background-color: #3730a3;
+  }
+  
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .notification-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .notification-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #6366f1;
+  }
+  
+  .user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  
+  /* Navigation Tabs */
+  .nav-tabs {
+    display: flex;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 24px;
+  }
+  
+  .tab-button {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    transition: color 0.3s;
+  }
+  
+  .tab-button:hover {
+    color: #111827;
+  }
+  
+  .tab-button.active {
+    color: #4f46e5;
+    border-bottom: 2px solid #4f46e5;
+  }
+  
+  /* Dashboard Overview */
+  .dashboard-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  /* Metrics Grid */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .metric-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .metric-title {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .metric-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 50px;
+  }
+  
+  .excellent {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .good {
+    background-color: #e0f2fe;
+    color: #0369a1;
+  }
+  
+  .average {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .needs-improvement {
+    background-color: #fee2e2;
+    color: #b91c1c;
+  }
+  
+  .metric-value {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .value {
+    font-size: 30px;
+    font-weight: bold;
+    color: #111827;
+  }
+  
+  .trend {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .trend.positive {
+    color: #10b981;
+  }
+  
+  .trend.negative {
+    color: #ef4444;
+  }
+  
+  .progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: #e5e7eb;
+    border-radius: 50px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    border-radius: 50px;
+  }
+  
+  .progress-blue {
+    background-color: #3b82f6;
+  }
+  
+  .progress-purple {
+    background-color: #8b5cf6;
+  }
+  
+  .progress-yellow {
+    background-color: #f59e0b;
+  }
+  
+  .metric-updated {
+    font-size: 12px;
+    color: #9ca3af;
+  }
+  
+  /* Info Grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  @media (max-width: 768px) {
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .info-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+  
+  .deadline-list, .activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .deadline-item, .activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: #f9fafb;
+    border-radius: 8px;
+  }
+  
+  .deadline-info h4, .activity-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 2px;
+  }
+  
+  .deadline-course, .activity-course {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .deadline-date {
+    background-color: #e0f2fe;
+    color: #0369a1;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .activity-item {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .activity-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .activity-content {
+    flex: 1;
+  }
+  
+  .activity-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+  }
+  
+  .activity-time {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .view-all {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4f46e5;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+  
+  .view-all:hover {
+    text-decoration: underline;
+  }
+  
+  /* Students Tab */
+  .students-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .students-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .students-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .add-student-btn {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-student-btn:hover {
+    background-color: #4338ca;
+  }
+  
+  .students-table-container {
+    overflow-x: auto;
+  }
+  
+  .students-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .students-table th {
+    padding: 12px 24px;
+    background-color: #f9fafb;
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .students-table td {
+    padding: 16px 24px;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .student-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .student-avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #e5e7eb;
+    border-radius: 50%;
+  }
+  
+  .student-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 2px;
+  }
+  
+  .student-id {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .progress-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .progress-value {
+    font-size: 14px;
+    color: #111827;
+  }
+  
+  .mini-progress-container {
+    width: 64px;
+    height: 6px;
+    background-color: #e5e7eb;
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  
+  .mini-progress-bar {
+    height: 100%;
+    border-radius: 50px;
+  }
+  
+  .progress-excellent {
+    background-color: #10b981;
+  }
+  
+  .progress-good {
+    background-color: #3b82f6;
+  }
+  
+  .progress-average {
+    background-color: #f59e0b;
+  }
+  
+  .progress-needs-improvement {
+    background-color: #ef4444;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .status-excellent {
+    background-color: #d1fae5;
+    color: #065f46;
+  }
+  
+  .status-very-good {
+    background-color: #dbeafe;
+    color: #1e40af;
+  }
+  
+  .status-good {
+    background-color: #e0e7ff;
+    color: #4338ca;
+  }
+  
+  .status-improvement {
+    background-color: #fef3c7;
+    color: #92400e;
+  }
+  
+  .view-details-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4f46e5;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .view-details-btn:hover {
+    text-decoration: underline;
+  }
+  
+  /* Placeholder Content */
+  .placeholder-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 48px 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .placeholder-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+  
+  .placeholder-text {
+    color: #6b7280;
+  }
+
+
+
+  /* Add these styles to your Teacher.css file */
+
+/* Class Selection Container Styles */
+.class-selection-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.selection-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.selection-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.selection-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.selection-group label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.selection-dropdown {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.selection-dropdown:hover {
+  border-color: #aaa;
+}
+
+.selection-dropdown:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.selection-dropdown:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.view-students-btn {
+  height: 40px;
+  padding: 0 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-students-btn:hover {
+  background-color: #3a7bc8;
+}
+
+.view-students-btn:disabled {
+  background-color: #a0c3e8;
+  cursor: not-allowed;
+}
+
+/* Student List Styles */
+.selection-prompt {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+
+.no-students-message {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .selection-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .selection-group {
+    width: 100%;
+  }
+  
+  .view-students-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add these styles to your Teacher.css file */
+
+/* Class Selection Container Styles */
+.class-selection-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.selection-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.selection-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.selection-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.selection-group label {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.selection-dropdown {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+
+.selection-dropdown:hover {
+  border-color: #aaa;
+}
+
+.selection-dropdown:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.selection-dropdown:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.view-students-btn {
+  height: 40px;
+  padding: 0 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-students-btn:hover {
+  background-color: #3a7bc8;
+}
+
+.view-students-btn:disabled {
+  background-color: #a0c3e8;
+  cursor: not-allowed;
+}
+
+/* Student List Styles */
+.selection-prompt {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+
+.no-students-message {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+/* Student header actions container */
+.student-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Attendance Styles */
+.take-attendance-btn {
+  height: 38px;
+  padding: 0 16px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.take-attendance-btn:hover {
+  background-color: #4cae4c;
+}
+
+.take-attendance-btn.active {
+  background-color: #d9534f;
+}
+
+.take-attendance-btn.active:hover {
+  background-color: #c9302c;
+}
+
+.attendance-controls {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.attendance-controls h4 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #333;
+}
+
+.attendance-date-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.attendance-date-container label {
+  margin-right: 12px;
+  font-weight: 500;
+}
+
+.attendance-date-container input[type="date"] {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.attendance-table-container {
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-table th {
+  background-color: #f5f7fa;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.attendance-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.attendance-status-options {
+  display: flex;
+  gap: 12px;
+}
+
+.status-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.status-option:hover {
+  background-color: #f5f5f5;
+}
+
+.status-option.selected {
+  background-color: #e6f7ff;
+}
+
+.status-option input {
+  margin-right: 6px;
+}
+
+.remarks-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.attendance-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.submit-attendance-btn {
+  padding: 10px 24px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-attendance-btn:hover {
+  background-color: #3a7bc8;
+}
+
+.submit-attendance-btn:disabled {
+  background-color: #a0c3e8;
+  cursor: not-allowed;
+}
+
+.submit-message {
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.submit-message.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #d6e9c6;
+}
+
+.submit-message.error {
+  background-color: #f2dede;
+  color: #a94442;
+  border: 1px solid #ebccd1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .selection-controls,
+  .attendance-status-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .selection-group {
+    width: 100%;
+  }
+  
+  .view-students-btn,
+  .submit-attendance-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Teacher.css */
+
+/* Sidebar Placeholder */
+.sidebar {
+  width: 200px;
+  float: left;
+  background-color: #f5f5f5;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Main dashboard styles */
+.dashboard-container {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.select-container {
+  margin-bottom: 15px;
+}
+
+.select-container select,
+.select-container input[type="date"] {
+  padding: 8px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.attendance-table select,
+.attendance-table input {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.submit-message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.submit-message.success {
+  color: green;
+}
+
+.submit-message.error {
+  color: red;
+}
+
+/* Student detail modal */
+.student-detail-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.student-detail-modal h3 {
+  margin-top: 0;
+}
+
+.student-detail-modal button {
+  margin-top: 20px;
+  background-color: #dc3545;
+}
+
+.progress-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.progress-value {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.mini-progress-container {
+  width: 100px;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+}
+
+.mini-progress-bar {
+  height: 10px;
+  border-radius: 5px;
+}
+
+.progress-excellent {
+  background-color: #28a745;
+}
+
+.progress-good {
+  background-color: #17a2b8;
+}
+
+.progress-average {
+  background-color: #ffc107;
+}
+
+.progress-needs-improvement {
+  background-color: #dc3545;
+}
+
+.attendance-summary-container {
+  margin-top: 20px;
+}
+
+.attendance-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attendance-summary-table th,
+.attendance-summary-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.student-id {
+  font-size: 12px;
+  color: #666;
+}
+
+.date-range-info {
+  margin: 10px 0;
+  font-style: italic;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+  margin-bottom: 20px;
+}
+
+.tab-buttons button {
+  background-color: #6c757d;
+}
+
+.tab-buttons button.active {
+  background-color: #007bff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

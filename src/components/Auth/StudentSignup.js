@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../Helper/AxiosInstance';
+import Sidebar from './SlideBar';
 
 const StudentSignup = () => {
   const [formData, setFormData] = useState({
@@ -45,6 +46,7 @@ const StudentSignup = () => {
   return (
     <div className="signup-container">
       <h2>Student Sign Up</h2>
+      <Sidebar/>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={onSubmit}>
         <div className="form-group">

@@ -20,6 +20,18 @@ const Signup = () => {
             Teacher Sign Up
           </Link>
         </div>
+        <div className="role-card">
+          <h3>I am an Administrator</h3>
+          <p>Manage the platform, users, and system configurations
+
+
+
+          </p><br/><br/>
+          <br/>
+          <Link to="/signup/admin" className="btn btn-primary">
+            Admin Sign Up
+          </Link>
+        </div>
       </div>
       <p>
         Already have an account?{' '}

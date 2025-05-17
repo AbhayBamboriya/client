@@ -57,6 +57,9 @@ const Login = () => {
          if(response?.data?.user?.role=="student"){
           navigate("/student-dashboard")
          }
+         else if(response?.data?.user?.role=="admin"){
+          navigate("/admin-dashboard")
+         }
          else if(response?.data?.user?.role=="teacher"){
           navigate("/teacher-dashboard")
          }

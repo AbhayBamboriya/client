@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import axiosInstance from '../../Helper/AxiosInstance';
+import Sidebar from './SlideBar';
 
 const TeacherSignup = () => {
   const [formData, setFormData] = useState({
@@ -43,14 +45,10 @@ const TeacherSignup = () => {
       setError('Passwords do not match');
       return;
     }
-    
-    if (subjects.length === 0) {
-      setError('Please select at least one subject');
-      return;
-    }
+  
     
     try {
-      const res = await axios.post('/api/auth/signup', formData);
+      const res = await axiosInstance.post('/auth/signup', formData);
       
       // Save token to localStorage
       localStorage.setItem('token', res.data.token);
@@ -64,6 +62,7 @@ const TeacherSignup = () => {
   
   return (
     <div className="signup-container">
+      {/* <Sidebar/> */}
       <h2>Teacher Sign Up</h2>
       {error && <div className="alert alert-danger">{error}</div>}
       <form onSubmit={onSubmit}>
@@ -109,7 +108,7 @@ const TeacherSignup = () => {
             minLength="6"
           />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label>Subjects You Teach</label>
           <div className="checkbox-group">
             <div className="checkbox-item">
@@ -176,7 +175,7 @@ const TeacherSignup = () => {
               <label htmlFor="computer">Computer Science</label>
             </div>
           </div>
-        </div>
+        </div> */}
         <button type="submit" className="btn btn-primary">Sign Up</button>
       </form>
       <p>
