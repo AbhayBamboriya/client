@@ -6,7 +6,7 @@ import Sidebar from './SlideBar';
 const StudentSignup = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    enrollment: '',
     password: '',
     password2: '',
     grade: '',
@@ -15,7 +15,7 @@ const StudentSignup = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   
-  const { name, email, password, password2, grade } = formData;
+  const { name,enrollmentNo, password, password2, grade } = formData;
   
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -60,11 +60,11 @@ const StudentSignup = () => {
           />
         </div>
         <div className="form-group">
-          <label>Email</label>
+          <label>Enrollment</label>
           <input
-            type="email"
-            name="email"
-            value={email}
+            type="Text"
+            name="enrollmentNo"
+            value={enrollmentNo}
             onChange={onChange}
             required
           />
