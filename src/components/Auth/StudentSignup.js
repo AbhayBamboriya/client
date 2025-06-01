@@ -39,7 +39,9 @@ const StudentSignup = () => {
       // Redirect to student dashboard
       navigate('/student-dashboard');
     } catch (err) {
-      setError(err.response.data.msg || 'Registration failed');
+      console.log(err);
+      
+      setError(err?.response?.data?.msg || 'Registration failed');
     }
   };
   

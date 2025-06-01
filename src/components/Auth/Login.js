@@ -51,7 +51,7 @@ const Login = () => {
 
     } catch (err) {
       console.log('Catch block error:', err);
-      setError('Login failed');
+      setError(err?.response?.data?.msg || 'Login failed');
     }
   };
 
